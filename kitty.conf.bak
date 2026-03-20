@@ -738,7 +738,7 @@ disable_ligatures never
 #: clicks (in seconds). Negative numbers will use the system default
 #: instead, if available, or fallback to 0.5.
 
-# focus_follows_mouse no
+# focus_follows_mouse yes
 
 #: Set the active window to the window under the mouse when moving the
 #: mouse around. On macOS, this will also cause the OS Window under
@@ -1100,7 +1100,7 @@ enabled_layouts *
 #: windows visible, this option has no effect and normal border
 #: drawing rules apply.
 
-# window_margin_width 0
+window_margin_width 3
 
 #: The window margin (in pts) (blank area outside the border). A
 #: single value sets all four sides. Two values set the vertical and
@@ -1115,7 +1115,7 @@ enabled_layouts *
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-# window_padding_width 0
+window_padding_width 1
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
@@ -1160,7 +1160,7 @@ enabled_layouts *
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-# hide_window_decorations no
+hide_window_decorations titlebar-and-corners 
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
@@ -2088,8 +2088,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: means to use the default system colors, a value of background means
 #: to use the background color of the currently active kitty window
 #: and finally you can use an arbitrary color, such as #12af59 or red.
-
-# macos_titlebar_color system
+# macos_titlebar_color background
 
 #: The color of the kitty window's titlebar on macOS. A value of
 #: system means to use the default system color, light or dark can
@@ -2999,6 +2998,6 @@ bold_italic_font auto
 # END_KITTY_FONTS
 
 # BEGIN_KITTY_THEME
-# Pastel EGA
+# Gruvbox Light Soft
 include current-theme.conf
 # END_KITTY_THEME
