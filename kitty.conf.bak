@@ -553,7 +553,7 @@ disable_ligatures never
 
 #: Mouse {{{
 
-# mouse_hide_wait 3.0
+mouse_hide_wait 3.0
 
 #: Hide mouse cursor after the specified number of seconds of the
 #: mouse not being used. Set to zero to disable mouse cursor hiding.
@@ -738,7 +738,7 @@ disable_ligatures never
 #: clicks (in seconds). Negative numbers will use the system default
 #: instead, if available, or fallback to 0.5.
 
-# focus_follows_mouse yes
+focus_follows_mouse yes
 
 #: Set the active window to the window under the mouse when moving the
 #: mouse around. On macOS, this will also cause the OS Window under
@@ -848,7 +848,7 @@ disable_ligatures never
 
 #: Start selecting text in a rectangle
 
-# mouse_map ctrl+alt+left press ungrabbed mouse_selection rectangle
+mouse_map ctrl+alt+left press ungrabbed mouse_selection rectangle
 
 #: Select a word
 
@@ -958,7 +958,7 @@ disable_ligatures never
 #: The audio bell. Useful to disable it in environments that require
 #: silence.
 
-# visual_bell_duration 0.0
+visual_bell_duration 0.5
 
 #: The visual bell duration (in seconds). Flash the screen when a bell
 #: occurs for the specified number of seconds. Set to zero to disable.
@@ -1740,7 +1740,7 @@ editor neovim
 #: See rc_custom_auth <https://sw.kovidgoyal.net/kitty/remote-
 #: control/#rc-custom-auth> for details.
 
-# allow_remote_control no
+allow_remote_control yes
 
 #: Allow other programs to control kitty. If you turn this on, other
 #: programs can control all aspects of kitty, including sending text
@@ -2991,7 +2991,7 @@ map shift+cmd+equal  change_font_size all +0.5
 
 
 # BEGIN_KITTY_FONTS
-font_family      family="0xProto Nerd Font Mono"
+font_family      family='FiraCode Nerd Font Mono' style=Retina
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
