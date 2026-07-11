@@ -10,7 +10,7 @@ bold_italic_font auto
 # END_KITTY_FONTS
 
 # BEGIN_KITTY_THEME
-# Belafonte Day
+# Gruvbox Light Soft
 include current-theme.conf
 # END_KITTY_THEMEall 
 #: kitty has very powerful font management. You can configure
@@ -1099,7 +1099,7 @@ enabled_layouts *
 #: that setting a non-zero window_margin_width overrides this and
 #: causes all borders to be drawn.
 
-draw_window_borders_for_single_window no
+# draw_window_borders_for_single_window no
 
 #: Draw borders around a window even when there is only a single
 #: window visible. When enabled and there is only a single window,
@@ -1118,7 +1118,7 @@ window_margin_width 3
 #: horizontal sides. Three values set top, horizontal and bottom. Four
 #: values set top, right, bottom and left.
 
-single_window_margin_width 0
+# single_window_margin_width -1
 
 #: The window margin to use when only a single window is visible (in
 #: pts). Negative values will cause the value of window_margin_width
@@ -1170,7 +1170,7 @@ placement_strategy bottom
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations titlebar-and-corners
+hide_window_decorations titlebar-only 
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
@@ -2288,12 +2288,12 @@ macos_colorspace default
 
 #: Copy to clipboard or pass through
 
-# map cmd+c copy_or_noop
+map cmd+c copy_or_noop
 
 #: Paste from clipboard
 
 # map kitty_mod+v paste_from_clipboard
-# map cmd+v       paste_from_clipboard
+map cmd+v       paste_from_clipboard
 
 #: Paste from selection
 
