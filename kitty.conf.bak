@@ -2,6 +2,17 @@
 
 #: Fonts {{{
 
+# BEGIN_KITTY_FONTS
+font_family      family='FiraCode Nerd Font Mono' postscript_name=FiraCodeNFM-Ret
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
+
+# BEGIN_KITTY_THEME
+# Belafonte Day
+include current-theme.conf
+# END_KITTY_THEMEall 
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
 #: characters.
@@ -337,7 +348,7 @@ disable_ligatures never
 #: setting also controls blinking text, which blinks in exact rhythm
 #: with the cursor.
 
-# cursor_trail 0
+cursor_trail 100
 
 #: Set this to a value larger than zero to enable a "cursor trail"
 #: animation. This is an animation that shows a "trail" following the
@@ -353,7 +364,7 @@ disable_ligatures never
 #: cursor_trail_start_threshold to control when a cursor trail is
 #: started.
 
-# cursor_trail_decay 0.1 0.4
+cursor_trail_decay 0.1 0.4
 
 #: Controls the decay times for the cursor trail effect when the
 #: cursor_trail is enabled. This option accepts two positive float
@@ -365,7 +376,7 @@ disable_ligatures never
 #: trail. Adjust these values to control how quickly the cursor trail
 #: fades away.
 
-# cursor_trail_start_threshold 2
+cursor_trail_start_threshold 3
 
 #: Set the distance threshold for starting the cursor trail. This
 #: option accepts a positive integer value that represents the minimum
@@ -386,7 +397,7 @@ disable_ligatures never
 
 #: Scrollback {{{
 
-# scrollback_lines 2000
+scrollback_lines 2000
 
 #: Number of lines of history to keep in memory for scrolling back.
 #: Memory is allocated on demand. Negative numbers are (effectively)
@@ -397,7 +408,7 @@ disable_ligatures never
 #: is changed it will only affect newly created windows, not existing
 #: ones.
 
-# scrollbar scrolled
+scrollbar scrolled
 
 #: Control when the scrollbar is displayed.
 
@@ -500,7 +511,7 @@ disable_ligatures never
 #: If you would rather use neovim to view the scrollback, use
 #: something like this::
 
-#:     scrollback_pager nvim --cmd 'set eventignore=FileType' +'nnoremap q ZQ' +'call nvim_open_term(0, {})' +'set nomodified nolist' +'$' -
+scrollback_pager nvim --cmd 'set eventignore=FileType' +'nnoremap q ZQ' +'call nvim_open_term(0, {})' +'set nomodified nolist' +'$' -
 
 #: The above works for neovim 0.12 and newer. There is also a
 #: dedicated plugin kitty-scrollback.nvim
@@ -637,7 +648,7 @@ mouse_hide_wait 3.0
 #: specified using backslash escapes, to specify a backslash use a
 #: double backslash.
 
-# show_hyperlink_targets no
+show_hyperlink_targets no
 
 #: When the mouse hovers over a terminal hyperlink, show the actual
 #: URL that will be activated when the hyperlink is clicked.
@@ -958,7 +969,7 @@ mouse_map ctrl+alt+left press ungrabbed mouse_selection rectangle
 #: The audio bell. Useful to disable it in environments that require
 #: silence.
 
-visual_bell_duration 0.5
+visual_bell_duration 0.2
 
 #: The visual bell duration (in seconds). Flash the screen when a bell
 #: occurs for the specified number of seconds. Set to zero to disable.
@@ -1036,7 +1047,7 @@ visual_bell_duration 0.5
 
 #: Window layout {{{
 
-# remember_window_size  yes
+remember_window_size  yes
 # initial_window_width  640
 # initial_window_height 400
 
@@ -1047,7 +1058,7 @@ visual_bell_duration 0.5
 #: suffix of "c" on the width/height values to have them interpreted
 #: as number of cells instead of pixels.
 
-remember_window_position no
+remember_window_position yes
 
 #: If enabled, the OS Window position will be remembered so that new
 #: instances of kitty will have the same position as the previous
@@ -1088,7 +1099,7 @@ enabled_layouts *
 #: that setting a non-zero window_margin_width overrides this and
 #: causes all borders to be drawn.
 
-# draw_window_borders_for_single_window no
+draw_window_borders_for_single_window no
 
 #: Draw borders around a window even when there is only a single
 #: window visible. When enabled and there is only a single window,
@@ -1107,7 +1118,7 @@ window_margin_width 3
 #: horizontal sides. Three values set top, horizontal and bottom. Four
 #: values set top, right, bottom and left.
 
-# single_window_margin_width -1
+single_window_margin_width 0
 
 #: The window margin to use when only a single window is visible (in
 #: pts). Negative values will cause the value of window_margin_width
@@ -1115,14 +1126,14 @@ window_margin_width 3
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-window_padding_width 1
+window_padding_width 0.5
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
 #: the vertical and horizontal sides. Three values set top, horizontal
 #: and bottom. Four values set top, right, bottom and left.
 
-# single_window_padding_width -1
+single_window_padding_width 0
 
 #: The window padding to use when only a single window is visible (in
 #: pts). Negative values will cause the value of window_padding_width
@@ -1130,7 +1141,7 @@ window_padding_width 1
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-# placement_strategy center
+placement_strategy bottom
 
 #: When the window size is not an exact multiple of the cell size, the
 #: cell area of the terminal window will have some extra padding on
@@ -1141,7 +1152,7 @@ window_padding_width 1
 #: left, top, top-right, left, center, right, bottom-left, bottom,
 #: bottom-right.
 
-# active_border_color #00ff00
+# active_border_color #32fb38
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
@@ -1149,7 +1160,6 @@ window_padding_width 1
 # inactive_border_color #cccccc
 
 #: The color for the border of inactive windows.
-
 # bell_border_color #ff5a00
 
 #: The color for the border of inactive windows in which a bell has
@@ -1160,7 +1170,7 @@ window_padding_width 1
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations titlebar-and-corners 
+hide_window_decorations titlebar-and-corners
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
@@ -1257,7 +1267,7 @@ hide_window_decorations titlebar-and-corners
 
 #: Tab bar {{{
 
-# tab_bar_edge bottom
+tab_bar_edge top
 
 #: The edge to show the tab bar on, top or bottom.
 
@@ -1272,7 +1282,7 @@ hide_window_decorations titlebar-and-corners
 #: The second number is the margin between the tab bar and the
 #: contents of the current tab.
 
-# tab_bar_style fade
+tab_bar_style slant
 
 #: The tab bar style, can be one of:
 
@@ -1313,7 +1323,7 @@ hide_window_decorations titlebar-and-corners
 #: such as goto_tab, next_tab, previous_tab, etc. are automatically
 #: restricted to work only on matching tabs.
 
-# tab_bar_align left
+tab_bar_align right
 
 #: The horizontal alignment of the tab bar, can be one of: left,
 #: center, right.
@@ -1682,7 +1692,7 @@ dynamic_background_opacity yes
 #: interactive mode and reads its startup rc files. Environment
 #: variables are expanded in this setting.
 
-editor neovim 
+editor .
 
 #: The terminal based text editor (such as vim or nano) to use when
 #: editing the kitty config file or similar tasks.
@@ -1694,8 +1704,7 @@ editor neovim
 #: kitty will cycle through various known editors (vim, emacs, etc.)
 #: and take the first one that exists on your system.
 
-# close_on_child_death no
-
+close_on_child_death no
 #: Close the window when the child process (usually the shell) exits.
 #: With the default value no, the terminal will remain open when the
 #: child exits as long as there are still other processes outputting
@@ -1769,7 +1778,7 @@ allow_remote_control yes
 #: yes
 #:     Remote control requests are always accepted.
 
-# listen_on none
+listen_on unix:/tmp/mykitty
 
 #: Listen to the specified socket for remote control connections. Note
 #: that this will apply to all kitty instances. It can be overridden
@@ -1915,7 +1924,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: remote machine to read/write to the local filesystem, without
 #: permission.
 
-# allow_hyperlinks yes
+allow_hyperlinks yes
 
 #: Process hyperlink escape sequences (OSC 8). If disabled OSC 8
 #: escape sequences are ignored. Otherwise they become clickable
@@ -1924,7 +1933,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: special value of ask means that kitty will ask before opening the
 #: link when clicked.
 
-# shell_integration enabled
+shell_integration enabled
 
 #: Enable shell integration on supported shells. This enables features
 #: such as jumping to previous prompts, browsing the output of the
@@ -1935,7 +1944,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: prompt-mark, no-complete, no-sudo. See Shell integration
 #: <https://sw.kovidgoyal.net/kitty/shell-integration/> for details.
 
-# allow_cloning ask
+allow_cloning yes
 
 #: Control whether programs running in the terminal can request new
 #: windows to be created. The canonical example is clone-in-kitty
@@ -1975,7 +1984,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: never
 #:     Never send a notification.
 
-#: unfocused
+unfocused 30 notify
 #:     Only send a notification when the window does not have keyboard focus.
 
 #: invisible
@@ -2071,7 +2080,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: Specify entries for various menus in kitty. Currently only the
 #: global menubar on macOS is supported. For example::
 
-#:    menu_map global "Actions::Launch something special" launch --hold --type=os-window sh -c "echo hello world"
+menu_map global "Actions::Launch nvim" launch --hold --type=os-window sh -c "nvim"
 
 #: This will create a menu entry named "Launch something special" in
 #: an "Actions" menu in the macOS global menubar. Sub-menus can be
@@ -2096,7 +2105,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: use the background color of the currently active window and finally
 #: you can use an arbitrary color, such as #12af59 or red.
 
-# macos_option_as_alt no
+macos_option_as_alt both
 
 #: Use the Option key as an Alt key on macOS. With this set to no,
 #: kitty will use the macOS native Option+Key to enter Unicode
@@ -2111,13 +2120,13 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: will not be passed to terminal programs running inside kitty.
 #: Changing this option by reloading the config is not supported.
 
-# macos_hide_from_tasks no
+macos_hide_from_tasks no
 
 #: Hide the kitty window from running tasks on macOS (⌘+Tab and the
 #: Dock). Changing this option by reloading the config is not
 #: supported.
 
-# macos_quit_when_last_window_closed no
+macos_quit_when_last_window_closed yes
 
 #: Have kitty quit when all the top-level windows are closed on macOS.
 #: By default, kitty will stay running, even with no open windows, as
@@ -2137,7 +2146,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: this option is obsolete (although still supported). Consider using
 #: text_composition_strategy instead.
 
-# macos_traditional_fullscreen no
+macos_traditional_fullscreen yes
 
 #: Use the macOS traditional full-screen transition, that is faster,
 #: but less pretty.
@@ -2167,7 +2176,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: mouse cursor invisible on dual GPU machines. Changing this option
 #: by reloading the config is not supported.
 
-# macos_colorspace srgb
+macos_colorspace default
 
 #: The colorspace in which to interpret terminal colors. The default
 #: of srgb will cause colors to match those seen in web browsers. The
@@ -2422,8 +2431,8 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 
 #: New window
 
-# map kitty_mod+enter new_window
-# map cmd+enter       new_window
+map kitty_mod+enter launch --cwd=current
+map cmd+enter       new_window
 
 #::  You can open a new kitty window running an arbitrary program, for
 #::  example::
@@ -2638,7 +2647,7 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 #: Useful to temporarily "zoom" the active window by switching to the
 #: stack layout::
 
-#:     map ctrl+alt+z toggle_layout stack
+map ctrl+alt+z toggle_layout stack
 #: }}}
 
 #: Font sizes {{{
@@ -2648,17 +2657,17 @@ clipboard_control write-clipboard write-primary read-clipboard read-primary
 
 #: Increase font size
 
-map kitty_mod+equal  change_font_size all +1.0
-map kitty_mod+plus   change_font_size all +1.0
-map kitty_mod+kp_add change_font_size all +1.0
+map kitty_mod+equal  change_font_size current +1.0
+map kitty_mod+plus   change_font_size current +1.0
+map kitty_mod+kp_add change_font_size current +1.0
 map cmd+plus         change_font_size all +0.5
 map cmd+equal        change_font_size all +0.5
 map shift+cmd+equal  change_font_size all +0.5
 
 #: Decrease font size
 
-# map kitty_mod+minus       change_font_size all -2.0
-# map kitty_mod+kp_subtract change_font_size all -2.0
+map kitty_mod+minus       change_font_size current -2.0
+map kitty_mod+kp_subtract change_font_size current -2.0
 # map cmd+minus             change_font_size all -2.0
 # map shift+cmd+minus       change_font_size all -2.0
 
@@ -2713,7 +2722,6 @@ map shift+cmd+equal  change_font_size all +0.5
 #: Insert chosen file
 
 # map kitty_mod+p>c kitten choose-files
-
 #::  Select a file using the choose-files
 #::  <https://sw.kovidgoyal.net/kitty/kittens/choose-files/> kitten
 #::  and insert it into the terminal.
@@ -2990,14 +2998,3 @@ map shift+cmd+equal  change_font_size all +0.5
 #: }}}
 
 
-# BEGIN_KITTY_FONTS
-font_family      family='FiraCode Nerd Font Mono' style=Retina
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
-# END_KITTY_FONTS
-
-# BEGIN_KITTY_THEME
-# Gruvbox Light Soft
-include current-theme.conf
-# END_KITTY_THEME
